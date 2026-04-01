@@ -76,3 +76,6 @@
 {"level":"info","message":"User with email nkachukwuvictor2016@gmail.com authenticated successfully","service":"acquisitions-service","timestamp":"2026-04-01T18:36:36.349Z"}
 {"level":"info","message":"User with email nkachukwuvictor2016@gmail.com signed in successfully","service":"acquisitions-service","timestamp":"2026-04-01T18:36:36.355Z"}
 {"level":"info","message":"::ffff:127.0.0.1 - - [01/Apr/2026:18:36:36 +0000] \"POST /api/auth/sign-in HTTP/1.1\" 200 206 \"-\" \"insomnia/12.5.0-beta.0\"","service":"acquisitions-service","timestamp":"2026-04-01T18:36:36.360Z"}
+{"level":"info","message":"User with email nkachukwuvictor2016@gmail.com authenticated successfully","service":"acquisitions-service","timestamp":"2026-04-01T18:38:31.553Z"}
+{"level":"info","message":"User with email nkachukwuvictor2016@gmail.com signed in successfully","service":"acquisitions-service","timestamp":"2026-04-01T18:38:31.554Z"}
+{"level":"info","message":"::ffff:127.0.0.1 - - [01/Apr/2026:18:38:31 +0000] \"POST /api/auth/sign-in HTTP/1.1\" 200 206 \"-\" \"insomnia/12.5.0-beta.0\"","service":"acquisitions-service","timestamp":"2026-04-01T18:38:31.555Z"}
