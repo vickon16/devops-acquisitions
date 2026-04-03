@@ -5,6 +5,7 @@
   "main": "index.js",
   "type": "module",
   "imports": {
+    "#src/*": "./src/*",
     "#config/*": "./src/config/*",
     "#models/*": "./src/models/*",
     "#routes/*": "./src/routes/*",
@@ -12,7 +13,8 @@
     "#utils/*": "./src/utils/*",
     "#controllers/*": "./src/controllers/*",
     "#middleware/*": "./src/middleware/*",
-    "#validations/*": "./src/validations/*"
+    "#validations/*": "./src/validations/*",
+    "#tests/*": "./src/tests/*"
   },
   "scripts": {
     "dev": "node --watch src/server.js",
@@ -28,7 +30,8 @@
     "db:migrate:local": "DATABASE_URL=\"postgresql://neon:npg@localhost:5432/neondb\" drizzle-kit migrate",
     "db:studio:local": "DATABASE_URL=\"postgresql://neon:npg@localhost:5432/neondb\" drizzle-kit studio",
     "dev:docker": "sh scripts/dev.sh",
-    "prod:docker": "sh scripts/prod.sh"
+    "prod:docker": "sh scripts/prod.sh",
+    "test": "NODE_OPTIONS=\"--experimental-vm-modules\" jest"
   },
   "repository": {
     "type": "git",
@@ -61,7 +64,9 @@
     "eslint": "^10.1.0",
     "eslint-config-prettier": "^10.1.8",
     "eslint-plugin-prettier": "^5.5.5",
+    "jest": "^30.3.0",
     "pg": "^8.20.0",
-    "prettier": "^3.8.1"
+    "prettier": "^3.8.1",
+    "supertest": "^7.2.2"
   }
 }
