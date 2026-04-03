@@ -7,8 +7,10 @@
 **/.classpath
 **/.dockerignore
 **/.env
+**/.env.*
 **/.git
 **/.gitignore
+**/.neon_local
 **/.project
 **/.settings
 **/.toolstarget

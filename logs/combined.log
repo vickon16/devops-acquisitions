@@ -79,3 +79,12 @@
 {"level":"info","message":"User with email nkachukwuvictor2016@gmail.com authenticated successfully","service":"acquisitions-service","timestamp":"2026-04-01T18:38:31.553Z"}
 {"level":"info","message":"User with email nkachukwuvictor2016@gmail.com signed in successfully","service":"acquisitions-service","timestamp":"2026-04-01T18:38:31.554Z"}
 {"level":"info","message":"::ffff:127.0.0.1 - - [01/Apr/2026:18:38:31 +0000] \"POST /api/auth/sign-in HTTP/1.1\" 200 206 \"-\" \"insomnia/12.5.0-beta.0\"","service":"acquisitions-service","timestamp":"2026-04-01T18:38:31.555Z"}
+{"level":"info","message":"User signed out successfully","service":"acquisitions-service","timestamp":"2026-04-01T18:56:51.650Z"}
+{"level":"info","message":"::ffff:127.0.0.1 - - [01/Apr/2026:18:56:51 +0000] \"POST /api/auth/sign-out HTTP/1.1\" 200 42 \"-\" \"insomnia/12.5.0-beta.0\"","service":"acquisitions-service","timestamp":"2026-04-01T18:56:51.651Z"}
+{"level":"info","message":"User with email nkachukwuvictor2016@gmail.com authenticated successfully","service":"acquisitions-service","timestamp":"2026-04-01T18:57:06.297Z"}
+{"level":"info","message":"User with email nkachukwuvictor2016@gmail.com signed in successfully","service":"acquisitions-service","timestamp":"2026-04-01T18:57:06.298Z"}
+{"level":"info","message":"::ffff:127.0.0.1 - - [01/Apr/2026:18:57:06 +0000] \"POST /api/auth/sign-in HTTP/1.1\" 200 206 \"-\" \"insomnia/12.5.0-beta.0\"","service":"acquisitions-service","timestamp":"2026-04-01T18:57:06.298Z"}
+{"level":"info","message":"User signed out successfully","service":"acquisitions-service","timestamp":"2026-04-01T18:57:12.551Z"}
+{"level":"info","message":"::ffff:127.0.0.1 - - [01/Apr/2026:18:57:12 +0000] \"POST /api/auth/sign-out HTTP/1.1\" 200 42 \"-\" \"insomnia/12.5.0-beta.0\"","service":"acquisitions-service","timestamp":"2026-04-01T18:57:12.555Z"}
+{"level":"info","message":"Hello from acquisitions","service":"acquisitions-service","timestamp":"2026-04-02T10:16:34.006Z"}
+{"level":"info","message":"::1 - - [02/Apr/2026:10:16:34 +0000] \"GET / HTTP/1.1\" 304 - \"-\" \"Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/146.0.0.0 Safari/537.36\"","service":"acquisitions-service","timestamp":"2026-04-02T10:16:34.008Z"}

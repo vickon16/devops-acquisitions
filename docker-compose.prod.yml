@@ -1,0 +1,28 @@
+##############################################################
+#  docker-compose.prod.yml  –  PRODUCTION
+#
+#  Usage:
+#    docker compose -f docker-compose.prod.yml up --build -d
+#
+#  Provide secrets via one of:
+#    a) .env.production file (never commit real secrets)
+#    b) docker compose run --env DATABASE_URL=...
+#    c) CI/CD environment injection (GitHub Actions secrets, etc.)
+##############################################################
+
+services:
+  # ----------------------------------------------------------
+  # Application container – production stage, no Neon Local
+  # ----------------------------------------------------------
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      target: production
+    restart: always
+    ports:
+      - "4000:4000"
+    env_file:
+      - .env.production
+    environment:
+      NODE_ENV: production
