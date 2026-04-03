@@ -5,9 +5,11 @@ import {
   updateUser as updateUserService,
   deleteUser as deleteUserService,
 } from '#services/user.service.js';
-import { userIdSchema, updateUserSchema } from '../validations/user.validation.js';
+import {
+  userIdSchema,
+  updateUserSchema,
+} from '../validations/user.validation.js';
 import { formatValidationError } from '#utils/format.js';
-
 
 export const fetchAllUsers = async (req, res, next) => {
   try {
@@ -83,11 +85,15 @@ export const updateUser = async (req, res, next) => {
     const authUser = req.user;
 
     if (authUser.role !== 'admin' && authUser.id !== targetUserId) {
-      return res.status(403).json({ error: 'Forbidden: You can only update your own information' });
+      return res
+        .status(403)
+        .json({ error: 'Forbidden: You can only update your own information' });
     }
 
     if (updates.role && authUser.role !== 'admin') {
-      return res.status(403).json({ error: 'Forbidden: Only admins can change roles' });
+      return res
+        .status(403)
+        .json({ error: 'Forbidden: Only admins can change roles' });
     }
 
     logger.info(`Updating user with ID ${targetUserId}`);
@@ -124,7 +130,9 @@ export const deleteUser = async (req, res, next) => {
     const authUser = req.user;
 
     if (authUser.role !== 'admin' && authUser.id !== targetUserId) {
-      return res.status(403).json({ error: 'Forbidden: You can only delete your own account' });
+      return res
+        .status(403)
+        .json({ error: 'Forbidden: You can only delete your own account' });
     }
 
     logger.info(`Deleting user with ID ${targetUserId}`);

@@ -6,21 +6,21 @@ This document explains how to run **devops-acquisitions** locally with **Neon Lo
 
 ## Prerequisites
 
-| Tool | Version |
-|------|---------|
-| Docker + Docker Compose | v2.20+ |
-| Neon account | [console.neon.tech](https://console.neon.tech) |
-| Node.js (host, optional) | 22+ |
+| Tool                     | Version                                        |
+| ------------------------ | ---------------------------------------------- |
+| Docker + Docker Compose  | v2.20+                                         |
+| Neon account             | [console.neon.tech](https://console.neon.tech) |
+| Node.js (host, optional) | 22+                                            |
 
 ---
 
 ## How `DATABASE_URL` switches between environments
 
-| Environment | `DATABASE_URL` points to | Managed by |
-|-------------|--------------------------|------------|
-| **Dev (Docker)** | `neon-local:5432` (proxy container) | `docker-compose.dev.yml` overrides it automatically |
-| **Host (bare-metal dev)** | `localhost:5432` if Neon Local is running | `.env.development` |
-| **Production** | Neon Cloud endpoint (`*.neon.tech`) | `.env.production` / CI/CD secrets |
+| Environment               | `DATABASE_URL` points to                  | Managed by                                          |
+| ------------------------- | ----------------------------------------- | --------------------------------------------------- |
+| **Dev (Docker)**          | `neon-local:5432` (proxy container)       | `docker-compose.dev.yml` overrides it automatically |
+| **Host (bare-metal dev)** | `localhost:5432` if Neon Local is running | `.env.development`                                  |
+| **Production**            | Neon Cloud endpoint (`*.neon.tech`)       | `.env.production` / CI/CD secrets                   |
 
 ---
 
@@ -31,10 +31,10 @@ Neon Local spins up a lightweight proxy that creates a **temporary ephemeral bra
 ### Step 1 – Get your Neon credentials
 
 1. Go to [console.neon.tech](https://console.neon.tech) → your project.
-2. **API Key**: *Account → API Keys → New API Key*
-3. **Project ID**: shown in *Project Settings* or the URL.
+2. **API Key**: _Account → API Keys → New API Key_
+3. **Project ID**: shown in _Project Settings_ or the URL.
 4. **Parent Branch ID**: `Settings → Branches`. Copy the ID of `main` (format: `br-xxx`).
-5. **DB Password**: go to *Dashboard → Connection string*, copy the password portion.
+5. **DB Password**: go to _Dashboard → Connection string_, copy the password portion.
 
 ### Step 2 – Populate `.env.development`
 
@@ -61,6 +61,7 @@ docker compose -f docker-compose.dev.yml up --build
 ```
 
 What happens:
+
 1. `neon-local` starts and creates an ephemeral branch forked from `PARENT_BRANCH_ID`.
 2. The `app` waits for the proxy to be healthy, then connects on `neon-local:5432`.
 3. The app runs with `node --watch` — source changes in `./src` hot-reload automatically.
@@ -108,6 +109,7 @@ JWT_SECRET=<long-random-secret>
 
 > ⚠️ **Never commit `.env.production` with real secrets to Git.**
 > In CI/CD (e.g. GitHub Actions), inject via repository secrets:
+>
 > ```yaml
 > env:
 >   DATABASE_URL: ${{ secrets.DATABASE_URL }}
@@ -136,14 +138,14 @@ docker compose -f docker-compose.prod.yml logs -f app
 
 ## 📁 File Reference
 
-| File | Purpose |
-|------|---------|
-| `Dockerfile` | Multi-stage build (`development` / `production` targets) |
-| `docker-compose.dev.yml` | Dev: Neon Local proxy + app with hot-reload |
-| `docker-compose.prod.yml` | Prod: app-only container |
-| `.env.development` | Dev env vars (Neon Local credentials) — **never commit** |
-| `.env.production` | Prod env template — **never commit with real secrets** |
-| `.env.example` | Template for all variables (safe to commit) |
+| File                      | Purpose                                                  |
+| ------------------------- | -------------------------------------------------------- |
+| `Dockerfile`              | Multi-stage build (`development` / `production` targets) |
+| `docker-compose.dev.yml`  | Dev: Neon Local proxy + app with hot-reload              |
+| `docker-compose.prod.yml` | Prod: app-only container                                 |
+| `.env.development`        | Dev env vars (Neon Local credentials) — **never commit** |
+| `.env.production`         | Prod env template — **never commit with real secrets**   |
+| `.env.example`            | Template for all variables (safe to commit)              |
 
 ---
 
