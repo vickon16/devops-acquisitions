@@ -1,17 +1,22 @@
-import { fetchAllUsers } from '#controllers/user.controller.js';
+import {
+  fetchAllUsers,
+  getUserById,
+  updateUser,
+  deleteUser,
+} from '#controllers/user.controller.js';
+import { isAuthenticated, requiredRole } from '#middleware/user.middleware.js';
 import express from 'express';
 
 const userRoutes = express.Router();
 
-userRoutes.get('/', fetchAllUsers);
-userRoutes.get('/:id', (req, res) => {
-  res.json({ message: 'User fetched successfully' });
-});
-userRoutes.put('/:id', (req, res) => {
-  res.json({ message: 'User updated successfully' });
-});
-userRoutes.delete('/:id', (req, res) => {
-  res.json({ message: 'User deleted successfully' });
-});
+userRoutes.get('/', isAuthenticated, fetchAllUsers);
+userRoutes.get('/:id', isAuthenticated, getUserById);
+userRoutes.put('/:id', isAuthenticated, updateUser);
+userRoutes.delete(
+  '/:id',
+  isAuthenticated,
+  requiredRole(['admin', 'super_admin']),
+  deleteUser
+);
 
 export default userRoutes;
